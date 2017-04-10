@@ -5,19 +5,18 @@ The particular application is creating a to-do list.
 ## Contents:
 **todo.py** - Defines the flask app, and the Flask RESTful api endpoints defined on top of it     
 **models.py** - Defines the data model, implemented with the Flask SQLAlchemy ORM    
-**test.py** - Testing of API endpoints using Python unittest module
+**tests.py** - Testing of API endpoints using Python unittest module
 
 ## Resources:
 **Designing a RESTful API using Flask-RESTful**     
-This is Part 3 of a 3-part blog post on designing RESTful API's with Flask.
-This particular post was useful for explaining how the Flask-RESTful extension differs from using base Flask and what additional 
-functionality it brings. There are github links in the article to an API built with both Flask and Flask-RESTful.
+This is Part 3 of a 3-part blog post by @miguelgrinberg on designing RESTful API's with Flask.
+This particular post was useful for explaining how the Flask-RESTful extension differs from using base Flask and demonstrating the additional functionality it brings. There are github links in the article to an API built with both Flask and Flask-RESTful.
 https://blog.miguelgrinberg.com/post/designing-a-restful-api-using-flask-restful      
 
 **Test Driven Development of a Flask API**     
 This is a great blog post that uses Flask-RESTful, sqlalchemy, postgres, and the 
-nose testing framework to show how to write and test a simple api that performs CRUD operations. This was a really helpful example,
-thought in my implementation I used the python unittest module over nose, and made use of `field` and `marshal` functionality in Flask-RESTful. 
+nose testing framework to demonstrate how to write and test a simple API that performs CRUD operations. This was a really helpful example,
+though in my implementation I used the python unittest module over nose, and made use of `field` and `marshal` functionality in Flask-RESTful. 
 http://mkelsey.com/2013/05/15/test-driven-development-of-a-flask-api/
 
 **Flask-RESTful documentation**      
