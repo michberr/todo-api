@@ -28,6 +28,7 @@ class Todo(db.Model):
 
 ###############################################################
 
+
 def connect_to_db(app, db_uri="postgresql:///todo"):
     """Connect the database to Flask app."""
 
@@ -35,6 +36,16 @@ def connect_to_db(app, db_uri="postgresql:///todo"):
     app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
     db.app = app
     db.init_app(app)
+
+
+def load_example_data():
+    """Example data for testing"""
+
+    todo = Todo(name="Buy groceries",
+                description="Buy eggs and spinach")
+
+    db.session.add(todo)
+    db.session.commit()
 
 if __name__ == "__main__":
 
