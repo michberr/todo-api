@@ -1,5 +1,5 @@
 from flask import Flask, request, abort
-from flask_restful import Resource, Api, reqparse
+from flask_restful import Resource, Api, reqparse, fields, marshal_with
 from models import Todo, db, connect_to_db
 
 
@@ -28,6 +28,17 @@ class TodoView(Resource):
                                  default="",
                                  location='json')
 
+    # When we return a Todo object from an api method,
+    # these fields will appear in the response.
+    # We can also cast data to a different type here
+    # by specifying as 'fields.Integer' or fields.String
+    todo_fields = {
+        'id': fields.Integer,
+        'name': fields.String,
+        'description': fields.String
+    }
+
+    @marshal_with(todo_fields)
     def get(self, todo_id):
         """Retrieve a todo item by id"""
 
@@ -36,8 +47,9 @@ class TodoView(Resource):
         if not todo:
             abort(404, "That id does not exist in the database")
 
-        return todo.as_dict()
+        return todo
 
+    @marshal_with(todo_fields)
     def post(self):
         """Create a new todo item"""
 
@@ -50,8 +62,9 @@ class TodoView(Resource):
         db.session.add(todo)
         db.session.commit()
 
-        return todo.as_dict()
+        return todo
 
+    @marshal_with(todo_fields)
     def put(self, todo_id):
         """Update a todo item"""
 
@@ -66,7 +79,7 @@ class TodoView(Resource):
         todo.description = args["description"]
         db.session.commit()
 
-        return todo.as_dict()
+        return todo
 
 
 #####################################################
