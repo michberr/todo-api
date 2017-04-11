@@ -7,6 +7,19 @@ The particular application is creating a to-do list.
 **models.py** - Defines the data model, implemented with the Flask SQLAlchemy ORM    
 **tests.py** - Testing of API endpoints using Python unittest module
 
+## Using the api:
+To access the api from the command line:
+
+GET request (for task with id 1):
+```
+curl http://localhost:5000/todo/1
+```
+
+POST request:
+```
+curl http://localhost:5000/todo/ -X POST -H "Content-Type:application/json" -d '{"name":"Clean apartment","description":"Sweep, Mop, Tidy"}'
+```
+
 ## Resources:
 **Designing a RESTful API using Flask-RESTful**     
 This is Part 3 of a 3-part blog post by @miguelgrinberg on designing RESTful API's with Flask.
